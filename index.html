@@ -11,7 +11,7 @@
         <meta property="og:description"
             content="Empowering Education with Seamless Student Management" />
         <meta property="og:title" content="AVINYA" />
-        <meta name="image" property="og:image" content="assests/AVINYA.png" />
+        <meta name="image" property="og:image" content="https://avinya-gat.vercel.app/assests/AVINYA.png" />
         <!-- End Meta Signs -->
 
         <!-- Title Icon -->
@@ -117,17 +117,21 @@
 
         <!-- Contact Section -->
         <section class="contact" id="contact">
-            <div class="contact-container"
-                data-sr="enter bottom ease-in-out 100px">
+            <div class="contact-container" data-sr="enter bottom ease-in-out 100px">
                 <h2>Contact Us</h2>
-                <div class="input-container">
-                    <input type="text" id="name" name="name" placeholder="Your name...">
-                    <input type="email" id="email" name="email" placeholder="Your email...">
-                    <input type="tel" id="phone" name="phone" placeholder="Your phone number...">
-                    <textarea id="query" name="query" placeholder="Your query..."></textarea>
-                </div>
-                <div class="contact-form">
-                    <button type="submit">Submit</button>
+                <form id="contactForm">
+                    <div class="input-container">
+                        <input type="text" id="name" name="name" placeholder="Your name..." required>
+                        <input type="email" id="email" name="email" placeholder="Your email..." required>
+                        <input type="tel" id="phone" name="phone" placeholder="Your phone number..." required>
+                        <textarea id="query" name="query" placeholder="Your query..." required></textarea>
+                    </div>
+                    <div class="contact-form">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+                <div id="thankYouMessage" style="display:none;">
+                    Thank you for contacting us. We will get back to you soon!
                 </div>
             </div>
         </section>
@@ -172,8 +176,18 @@
         <script src="js/avinya.js"></script>
         <script src="js/avinya-particles.js"></script>
         <script src="https://unpkg.com/scrollreveal"></script>
-
         <script src="js/avinya-custom.js"></script>
+        <script src="js/avinya-contactform.js"></script>
         <!-- End Js -->
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SR69YQ2V7M"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-SR69YQ2V7M');
+        </script>
 </body>
 </html>

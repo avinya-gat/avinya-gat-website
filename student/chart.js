@@ -37,12 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-
     // Sample data for attendance percentage
     const barGraphData = [70, 80, 85, 75, 80, 85, 80]; // Sample attendance data for each exam
 
     // Create the attendance bar graph
-    new Chart(document.getElementById('attendance-chart'), {
+    const attendanceChart = new Chart(document.getElementById('attendance-chart'), {
         type: 'bar',
         data: {
             labels: ['23MAT23A', '23CHE22A', '23PLC23A', '23ESC24A', '23MEG25', '23IDT26', '23CIP27'],
@@ -68,4 +67,52 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Event listener for the attendance buttons
+    const attendanceButtons = document.querySelectorAll('.attendance-button');
+    attendanceButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const courseIndex = button.getAttribute('data-course-index');
+            const courseLabel = attendanceChart.data.labels[courseIndex];
+            const attendancePercentage = attendanceChart.data.datasets[0].data[courseIndex];
+            const modal = document.getElementById('attendanceModal');
+            const modalContent = modal.querySelector('.modal-content');
+            modalContent.innerHTML = `<h3>Attendance for ${courseLabel}</h3>
+                                      <p>Attendance Percentage: ${attendancePercentage}%</p>`;
+            modal.style.display = 'block';
+        });
+    });
+
+    // Close the modal when the close button is clicked
+    const closeButtons = document.querySelectorAll('.close');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            modal.style.display = 'none';
+        });
+    });
+
+    // Close the modal when clicking outside of it
+    window.addEventListener('click', event => {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+
+    const cieButtons = document.querySelectorAll('.cie-button');
+    cieButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const courseIndex = button.getAttribute('data-course-index');
+            const courseLabel = cieChart.data.labels[courseIndex];
+            const cieMarks = cieChart.data.datasets[0].data[courseIndex];
+            const modal = document.getElementById('cieMarksModal');
+            const modalContent = modal.querySelector('.modal-content');
+            modalContent.innerHTML = `<h3>CIE Marks for ${courseLabel}</h3>
+                                      <p>CIE Marks: ${cieMarks}</p>`;
+            modal.style.display = 'block';
+        });
+    });
+    
 });
