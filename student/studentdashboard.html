@@ -164,57 +164,81 @@
                         <tr>
                             <td>23MAT23A</td>
                             <td>MATHEMATICS II FOR CSE STREAM</td>
-                            <td><button class="custom-button">NOTES</button></td>
-                            <td><button class="custom-button">ATTENDANCE</button></td>
-                            <td><button class="custom-button">CIE</button></td>
+                            <td><button class="custom-button notes-button" data-course-code="23MAT23A">NOTES</button></td>
+                            <td><button class="custom-button attendance-button" data-course-index="0">ATTENDANCE</button></td>
+                            <td><button class="custom-button cie-button" data-course-index="0">CIE</button></td>
                         </tr>
                         <tr>
                             <td>23CHE22A</td>
                             <td>APPLIED CHEMISTRY FOR CSE STREAM (INTEGRATED)</td>
-                            <td><button class="custom-button">NOTES</button></td>
-                            <td><button class="custom-button">ATTENDANCE</button></td>
-                            <td><button class="custom-button">CIE</button></td>
+                            <td><button class="custom-button notes-button" data-course-code="23CHE22A">NOTES</button></td>
+                            <td><button class="custom-button attendance-button" data-course-index="1">ATTENDANCE</button></td>
+                            <td><button class="custom-button cie-button" data-course-index="1">CIE</button></td>
                         </tr>
                         <tr>
                             <td>23PLC23A</td>
                             <td>ADVANCED PROGRAMMING IN C (INTEGRATED)</td>
-                            <td><button class="custom-button">NOTES</button></td>
-                            <td><button class="custom-button">ATTENDANCE</button></td>
-                            <td><button class="custom-button">CIE</button></td>
+                            <td><button class="custom-button notes-button" data-course-code="23PLC23A">NOTES</button></td>
+                            <td><button class="custom-button attendance-button" data-course-index="2">ATTENDANCE</button></td>
+                            <td><button class="custom-button cie-button" data-course-index="2">CIE</button></td>
                         </tr>
                         <tr>
                             <td>23ESC24A</td>
                             <td>INTRODUCTION TO ELECTRONICS AND COMMUNICATION</td>
-                            <td><button class="custom-button">NOTES</button></td>
-                            <td><button class="custom-button">ATTENDANCE</button></td>
-                            <td><button class="custom-button">CIE</button></td>
+                            <td><button class="custom-button notes-button" data-course-code="23ESC24A">NOTES</button></td>
+                            <td><button class="custom-button attendance-button" data-course-index="3">ATTENDANCE</button></td>
+                            <td><button class="custom-button cie-button" data-course-index="3">CIE</button></td>
                         </tr>
                         <tr>
                             <td>23MEG25</td>
                             <td>COMPUTER AIDED ENGINEERING DRAWING</td>
-                            <td><button class="custom-button">NOTES</button></td>
-                            <td><button class="custom-button">ATTENDANCE</button></td>
-                            <td><button class="custom-button">CIE</button></td>
+                            <td><button class="custom-button notes-button" data-course-code="23MEG25">NOTES</button></td>
+                            <td><button class="custom-button attendance-button" data-course-index="4">ATTENDANCE</button></td>
+                            <td><button class="custom-button cie-button" data-course-index="4">CIE</button></td>
                         </tr>
                         <tr>
                             <td>23IDT26</td>
                             <td>INNOVATION AND DESIGN THINKING</td>
-                            <td><button class="custom-button">NOTES</button></td>
-                            <td><button class="custom-button">ATTENDANCE</button></td>
-                            <td><button class="custom-button">CIE</button></td>
+                            <td><button class="custom-button notes-button" data-course-code="23IDT26">NOTES</button></td>
+                            <td><button class="custom-button attendance-button" data-course-index="5">ATTENDANCE</button></td>
+                            <td><button class="custom-button cie-button" data-course-index="5">CIE</button></td>
                         </tr>
                         <tr>
                             <td>23CIP27</td>
                             <td>INDIAN CONSTITUTION</td>
-                            <td><button class="custom-button">NOTES</button></td>
-                            <td><button class="custom-button">ATTENDANCE</button></td>
-                            <td><button class="custom-button">CIE</button></td>
+                            <td><button class="custom-button notes-button" data-course-code="23CIP27">NOTES</button></td>
+                            <td><button class="custom-button attendance-button" data-course-index="6">ATTENDANCE</button></td>
+                            <td><button class="custom-button cie-button" data-course-index="6">CIE</button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
+    
+    <!-- Modal structure -->
+    <div id="notesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalCourseTitle"></h2>
+            <div id="modalCourseNotes"></div>
+        </div>
+    </div>
+    <div id="attendanceModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h3 id="modalCourseTitle"></h3>
+          <p id="modalAttendancePercentage"></p>
+        </div>
+    </div>
+    <div id="cieMarksModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3 id="modalCieCourseTitle">CIE Marks for Course</h3>
+          <p id="modalCieMarks">CIE Marks: </p>
+        </div>
+    </div>
+    
     <!-- End Graph Section -->
 
     <!-- Js -->
@@ -225,8 +249,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="avinya-student.js"></script>
     <script src="chart.js"></script>
-    
+    <script src="notes.js"></script>
     <!-- End Js -->
-</body>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SR69YQ2V7M"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-SR69YQ2V7M');
+    </script>
+</body>
 </html>
