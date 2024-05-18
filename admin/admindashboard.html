@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Student Dashboard</h1>
+    <script>
+        // Function to retrieve query parameters from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Retrieve username from URL
+        const username = getQueryParam('username');
+        if (username) {
+            // Use the username as needed
+            console.log('Username:', username);
+            // Display the username on the page
+            document.body.innerHTML += `<p>Welcome, ${username}!</p>`;
+        } else {
+            console.error('Username parameter not found in URL.');
+        }
+    </script>
+</body>
+</html>

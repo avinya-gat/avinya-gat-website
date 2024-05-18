@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-background: #001B34;
+    --color-dark: #363949;
+    --color-white: #fff;
+    --color-text: #57EFFE;
+    --color-secondary: #C1F9FF;
+    --color-info: #7d8da1;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --border-radius-1: 0.4rem;
+}
+
+/* Student Info Section */
+.student-info {
+    padding: 50px 0;
+    background-color: var(--color-background);
+    /* Use --color-secondary for background color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.student-details {
+    display: flex;
+    align-items: center;
+}
+
+.circle-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* Make it a circle */
+    overflow: hidden;
+}
+
+.circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-name {
+    margin-left: 20px;
+}
+
+.student-name h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--color-text);
+    /* Use --color-text for text color */
+}
+
+.student-info-right p {
+    margin: 5px 0;
+    font-size: 18px;
+    color: var(--color-info);
+    /* Use --color-info for text color */
+}
+
+/* End Student Info Section */
+
+/* Graph Section */
+.graph-section {
+    padding: 50px 0;
+    background-color: var(--color-secondary);
+    /* Background color */
+}
+
+.graph-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.graph-section .column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.graph-section h2 {
+    color: var(--color-text);
+    /* Text color */
+}
+
+.graph-section canvas {
+    width: 100%;
+    height: 300px;
+}
+
+.graph-section #attendance-chart {
+    width: 100%;
+    height: 300px;
+}
+
+/* End Graph Section */
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.credits-table {
+    width: 45%;
+    border-collapse: collapse;
+    margin-right: 10px;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.credits-table th,
+.credits-table td {
+    border: 1px solid #FFFFFF;
+    padding: 8px;
+    text-align: left;
+}
+
+.credits-table th {
+    background-color: #57EFFE;
+    color: #001B34;
+}
+
+.course-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-right: 10px;
+    flex: 1;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.course-table th,
+.course-table td {
+    border: 1px solid #57EFFE;
+    padding: 8px;
+    text-align: left;
+}
+
+.course-table th {
+    background-color: #FFFFFF;
+    color: #001B34;
+}
+
+.fees-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fees-status {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.bar-graph {
+    width: 100%;
+    height: 20px;
+    background-color: #FF0000;
+    position: relative;
+}
+
+.bar-progress {
+    height: 100%;
+    background-color: #00FF00;
+    /* Green color for paid */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bar-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.bar-label {
+    font-size: 12px;
+}
+
+.bar-label:first-child {
+    color: #00FF00;
+    /* Green color for paid */
+}
+
+.bar-label:last-child {
+    color: #FF0000;
+    /* Red color for pending */
+}
+
+.custom-button {
+    background-color: var(--color-text);
+    color: var(--color-background);
+    border: 2px solid var(--color-text);
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    /* border-radius: 5px; */
+}
+
+.custom-button:hover {
+    background-color: var(--color-text);
+    /* Change background color on hover */
+    color: #fff;
+    /* Change text color on hover */
+}
+
+/* Apply styles similar to the list items in the navigation */
+#logout-btn {
+    background-color: var(--color-background); /* Background color */
+    color: var(--color-info); /* Text color */
+    border: none; /* Remove default button border */
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer; /* Cursor style */
+    margin: 0;
+    padding: 0;
+}
+
+#logout-btn:hover {
+    color: var(--color-text); /* Text color on hover */
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Meta Signs -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:type" content="Website" />
+        <meta property="og:site_name" content="AVINYA" />
+        <meta property="og:description"
+            content="Empowering Education with Seamless Student Management" />
+        <meta property="og:title" content="AVINYA" />
+        <meta name="image" property="og:image" content="assests/AVINYA.png" />
+        <!-- End Meta Signs -->
+
+        <!-- Title Icon -->
+        <title>AVINYA</title>
+        <link rel="shortcut icon" href="assests/AVINYA.png">
+        <!-- End Title Icon -->
+
+        <!-- Css -->
+        <link href="css/avinya.css" rel="stylesheet">
+        <link href="css/avinya-loginup.css" rel="stylesheet">
+        <!-- End Css -->
+
+        <!-- Js -->
+        <script src="js/avinya.js"></script>
+        <!-- End Js -->
+
+        <!-- Box Icons Links -->
+        <script src="https://kit.fontawesome.com/f73d1108df.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <!-- End Box Icons Links -->
+
+    </head>
+    <body>
+
+        <!-- Nav -->
+        <nav class="nav" id="nav">
+            <div class="logo">A<span class="logospan">VINY</span>A</div>
+            <div class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html#project">About Project</a></li>
+                    <li><a href="index.html#roles">Project Roles</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                    <li><a href="loginup.html">Login / Register</a></li>
+                </ul>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+        <!-- End Nav -->
+
+        <!-- Login and Signup Section -->
+        <section class="auth-section">
+            <div id="particles-js"></div>
+            <div class="authcontainer">
+                <div class="auth-container">
+                    <div class="form-container">
+                        <div class="form-toggle">
+                            <button id="login-btn" class="active">Login</button>
+                            <button id="showSignUp">Sign Up</button>
+                        </div>
+                        <div id="login-form">
+                            <h2>Login</h2>
+                            <form onsubmit="return validateLoginForm()">
+                                <input type="text" id="login-username" name="username" placeholder="Username">
+                                <input type="password" id="login-password" name="password" placeholder="Password">
+                                <button type="submit">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Login and Signup Section -->
+
+        <!-- Contact Modal -->
+        <div id="contact-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Contact Us</h2>
+                <p>Please contact us to sign up.</p>
+                <button id="contact-btn">Contact Us</button>
+            </div>
+        </div>
+        <!-- Contact Modal -->
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-container" data-sr="enter bottom ease-in-out 100px">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: <a href="mailto:avinya.gat@gmail.com" class="mail">help@avinya.vercel.app</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <ul class="footer-icons">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-text">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#project">About</a></li>
+                        <li><a href="index.html#roles">Roles</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-copyright">
+                        <p>&copy; AVINYA <span id="current-year"></span></p>
+                        <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer Section -->
+
+        <!-- Js -->
+        <script src="js/avinya.js"></script>
+        <script src="js/avinya-custom.js"></script>
+        <script src="js/avinya-particles.js"></script>
+        <script src="js/avinya-loginup.js"></script>
+        <script src="js/avinya-login.js"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <!-- End Js -->
+</body>
+</html>

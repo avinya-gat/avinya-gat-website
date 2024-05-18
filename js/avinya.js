@@ -43,3 +43,6 @@ ScrollReveal().reveal('.footer-container', {
   origin: 'bottom'
 });
 
+const currentYear = new Date().getFullYear();
+document.getElementById('current-year').textContent = currentYear;
+
