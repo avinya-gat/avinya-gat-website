@@ -117,7 +117,7 @@ nav {
 }
 
 /* Show menu when toggle is active */
-.nav-menu.active {
+.nav-menu .active {
     display: flex;
 }
 
@@ -453,6 +453,7 @@ span {
     color: var(--color-white);
     padding: 40px 0;
     text-align: center;
+    height: fit-content;
 }
 
 .footer-container {

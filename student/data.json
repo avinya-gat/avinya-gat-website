@@ -1,0 +1,79 @@
+[
+  {
+    "username": "student1",
+    "password": "123",
+    "role": "student",
+    "cieData": {
+      "subjects": [
+        {
+          "name": "Subject 1",
+          "marks": 50
+        },
+        {
+          "name": "Subject 2",
+          "marks": 60
+        },
+        {
+          "name": "Subject 3",
+          "marks": 70
+        },
+        {
+          "name": "Subject 4",
+          "marks": 80
+        },
+        {
+          "name": "Subject 5",
+          "marks": 90
+        },
+        {
+          "name": "Subject 6",
+          "marks": 85
+        },
+        {
+          "name": "Subject 7",
+          "marks": 75
+        }
+      ]
+    },
+    "attendanceData": [
+      {
+        "exam": "Exam 1",
+        "percentage": 80
+      },
+      {
+        "exam": "Exam 2",
+        "percentage": 85
+      },
+      {
+        "exam": "Exam 3",
+        "percentage": 75
+      },
+      {
+        "exam": "Exam 4",
+        "percentage": 90
+      },
+      {
+        "exam": "Exam 5",
+        "percentage": 70
+      },
+      {
+        "exam": "Exam 6",
+        "percentage": 85
+      },
+      {
+        "exam": "Exam 7",
+        "percentage": 80
+      }
+    ]
+  },
+  {
+    "username": "teacher1",
+    "password": "teacher1pass",
+    "role": "teacher"
+  },
+  {
+    "username": "admin1",
+    "password": "admin1pass",
+    "role": "administrator"
+  }
+]
