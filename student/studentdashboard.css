@@ -309,3 +309,7 @@
 #logout-btn:hover {
     color: var(--color-text); /* Text color on hover */
 }
+
+#calendar{
+    z-index: 1000;
+}

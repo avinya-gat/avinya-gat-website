@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Include data for other courses
     };
     
-    
 
     notesButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -68,4 +67,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             modal.style.display = 'none';
         }
     });
+
 });
+
