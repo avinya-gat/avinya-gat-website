@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:type" content="Website" />
     <meta property="og:site_name" content="AVINYA" />
-    <meta property="og:description"
-        content="Empowering Education with Seamless Student Management" />
+    <meta property="og:description" content="Empowering Education with Seamless Student Management" />
     <meta property="og:title" content="AVINYA" />
     <meta name="image" property="og:image" content="../assests/AVINYA.png" />
     <!-- End Meta Signs -->
@@ -24,11 +23,11 @@
     <link href="../css/avinya-index.css" rel="stylesheet">
     <link href="studentdashboard.css" rel="stylesheet">
     <!-- End Css -->
-
+    
     <!-- Js -->
     <script src="../js/avinya.js"></script>
     <!-- End Js -->
-
+    
     <!-- Box Icons Links -->
     <script src="https://kit.fontawesome.com/f73d1108df.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -37,21 +36,21 @@
 </head>
 
 <body>
-
+    
     <!-- Nav -->
     <nav class="nav" id="nav">
         <div class="logo">A<span class="logospan">VINY</span>A</div>
+        <div class="nav-toggle" id="nav-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
         <div class="nav-menu" id="nav-menu">
             <ul>
-                <li><a href="" class="active">Home</a></li>
-                <li><a href="">Events</a></li>
-                <li><a href="">Time Table</a></li>
-                <li><a href="">Prev Pref</a></li>
+                <li><a href="studentdashboard.html" id="home-link" class="active">Home</a></li>
+                <!-- <li><a href="events.html" id="events-link">Events</a></li>
+                <li><a href="timetable.html" id="timetable-link">Time Table</a></li>
+                <li><a href="previouspreference.html" id="prev-pref-link">Prev Pref</a></li> -->
                 <li id="logout-btn"><button id="logout-btn">Logout</button></li>
             </ul>
-        </div>
-        <div class="nav-toggle" id="nav-toggle">
-            <i class="fas fa-bars"></i>
         </div>
     </nav>
     <!-- End Nav -->
@@ -224,16 +223,16 @@
             <div id="modalCourseNotes"></div>
         </div>
     </div>
-    <div id="attendanceModal" class="modal">
+    <div id="attendanceModal" class="modal m1">
         <div class="modal-content">
-          <span class="close-button">&times;</span>
+            <span class="close-button-1">&times;</span>
           <h3 id="modalCourseTitle"></h3>
           <p id="modalAttendancePercentage"></p>
         </div>
     </div>
-    <div id="cieMarksModal" class="modal">
+    <div id="cieMarksModal" class="modal m2">
         <div class="modal-content">
-          <span class="close">&times;</span>
+            <span class="close-button-2">&times;</span>
           <h3 id="modalCieCourseTitle">CIE Marks for Course</h3>
           <p id="modalCieMarks">CIE Marks: </p>
         </div>
@@ -243,6 +242,7 @@
 
     <!-- Js -->
     <script src="../js/avinya.js"></script>
+    <script src="../js/avinya-login.js"></script>
     <script src="../js/avinya-custom.js"></script>
     <script src="../js/avinya-particles.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>

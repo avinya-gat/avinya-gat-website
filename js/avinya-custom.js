@@ -1,9 +1,33 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+let menuIcon = document.querySelector('#nav-toggle i');
+let navbar = document.querySelector('#nav-menu');
 
-        toggleButton.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
-        });
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-xmark');
+    navbar.classList.toggle('active');
+}
 
+
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('nav a');
+
+window.onscroll = () => {
+  sections.forEach(sec => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 150;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute('id');
+    if(top >= offset && top < offset + height){
+      navLinks.forEach(links => {
+        links.classList.remove('active');
+        document.querySelector('nav a[href*=' + id + ']').classList.add('active');
+      });
+  };
 });
+
+  let header = document.querySelector('nav');
+  header.classList.toggle('sticky', window.scrollY > 100);
+
+  menuIcon.classList.remove('fa-xmark');
+  navbar.classList.remove('active');
+}

@@ -11,6 +11,7 @@
     --border-radius-1: 0.4rem;
 }
 
+/* General and Reset Styles */
 * {
     margin: 0;
     padding: 0;
@@ -33,72 +34,83 @@ body {
     color: var(--color-white);
 }
 
-/* General Navigation Styles */
-nav {
+/* Navigation Styles */
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 3.7rem;
-    padding: 10px 2rem;
     background-color: var(--color-background);
-    color: var(--color-text);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    padding: 10px 20px;
+    position: relative;
     z-index: 1000;
-    transition: all 300ms ease;
 }
 
 .logo {
-    font-size: x-large;
-    font-weight: bolder;
+    font-size: 24px;
     color: var(--color-text);
+    font-weight: bold;
+}
+
+.logospan {
+    color: var(--color-white);
 }
 
 .nav-menu {
     display: flex;
-    align-items: center;
 }
 
 .nav-menu ul {
-    display: flex;
-    margin: 0;
+    list-style: none;
     padding: 0;
-    list-style-type: none;
+    margin: 0;
+    display: flex;
 }
 
-.nav-menu ul li {
-    margin: 0 1rem;
+.nav-menu li {
+    margin: 0 10px;
 }
 
-.nav-menu ul li a {
+.nav-menu a {
     color: var(--color-info);
     text-decoration: none;
-    font-size: 1rem;
 }
 
-.nav-menu ul li a:hover {
-    color: var(--color-secondary);
+.nav-menu a.active {
+    border-bottom: 2px solid var(--color-text);
+}
+
+.nav-menu .active {
+    color: var(--color-text);
 }
 
 .nav-toggle {
     display: none;
-    font-size: 1.5rem;
     cursor: pointer;
 }
 
-/* Responsive Styles */
+.nav-toggle i {
+    font-size: 24px;
+    color: var(--color-text);
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
         flex-direction: column;
         width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
         background-color: var(--color-background);
-        border-top: 1px solid var(--color-secondary);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
     }
 
     .nav-menu ul {
@@ -106,31 +118,25 @@ nav {
         width: 100%;
     }
 
-    .nav-menu ul li {
-        margin: 1rem 0;
+    .nav-menu li {
+        width: 100%;
         text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #444;
     }
 
-    .nav-toggle {
-        display: block;
+    .nav-menu li:last-child {
+        border-bottom: none;
     }
 }
 
-/* Show menu when toggle is active */
-.nav-menu .active {
-    display: flex;
-}
-
-
-.options {
-    opacity: 0;
-    transform: translateX(100%);
-    padding-right: 1rem;
-}
-
+/* Home Section Styles */
 .home {
-    opacity: 0;
-    transform: translateY(-100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-background);
     animation: fadeInFromTop 2s ease forwards;
 }
 
@@ -146,45 +152,6 @@ nav {
     }
 }
 
-.active {
-    color: var(--color-text);
-}
-
-.display {
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-}
-
-.display h1 {
-    font-display: flex;
-    padding-top: 45%;
-    font-size: 20vh;
-}
-
-.display h2 {
-    padding-top: 10rem;
-    padding-left: 2rem;
-    font-size: 20vh;
-}
-
-span {
-    color: var(--color-text);
-}
-
-.logospan {
-    color: var(--color-white);
-}
-
-/* Home Section Styles */
-.home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    background-color: var(--color-background);
-}
-
 .container {
     display: flex;
     flex-direction: row;
@@ -197,7 +164,6 @@ span {
     background: var(--color-dark);
     border-radius: var(--border-radius-1);
 }
-
 
 .column-left,
 .column-right {
@@ -237,19 +203,21 @@ span {
     color: var(--color-secondary);
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
         text-align: center;
     }
+
     .column-left,
     .column-right {
         padding: 10px;
     }
+
     .column-right h1 {
         font-size: 2rem;
     }
+
     .column-right p {
         font-size: 1rem;
     }
@@ -288,7 +256,7 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: var(--color-white);
+    color: var (--color-white);
 }
 
 .project-left h2 {
@@ -315,19 +283,21 @@ span {
     border-radius: var(--border-radius-1);
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .project-container {
         flex-direction: column;
         text-align: center;
     }
+
     .project-left,
     .project-right {
         padding: 10px;
     }
+
     .project-left h2 {
         font-size: 1.5rem;
     }
+
     .project-left p {
         font-size: 1rem;
     }
@@ -350,11 +320,11 @@ span {
 
 .role {
     width: 200px;
-    margin: 20px; /* Add some margin between role elements */
-    padding: 20px; /* Add padding for better spacing */
-    background-color: rgba(200, 200, 200, 0.5); /* Set background color to grey with 50% opacity */
-    border-radius: var(--border-radius-1); /* Add border radius for rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add light shadow border */
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(200, 200, 200, 0.5);
+    border-radius: var(--border-radius-1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .role img {
@@ -379,7 +349,6 @@ span {
     color: var(--color-secondary);
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .role {
         width: 45%;
@@ -392,6 +361,7 @@ span {
     }
 }
 
+/* Contact Section Styles */
 .contact {
     background-color: var(--color-dark);
     color: var(--color-white);
@@ -426,7 +396,7 @@ span {
 
 .contact-form button {
     display: block;
-    margin: 0 auto; /* Center the button horizontally */
+    margin: 0 auto;
     padding: 10px 20px;
     background-color: var(--color-info);
     color: var(--color-white);
@@ -439,7 +409,6 @@ span {
     background-color: var(--color-secondary);
 }
 
-
 @media (max-width: 768px) {
     .input-container input,
     .input-container textarea {
@@ -447,7 +416,7 @@ span {
     }
 }
 
-
+/* Footer Styles */
 .footer {
     background-color: var(--color-background);
     color: var(--color-white);
@@ -517,22 +486,13 @@ span {
 }
 
 .footer-icons a:hover i {
-    color: var(--color-primary); /* Change icon color on hover */
-}
-
-/* CSS */
-.animate-fade-in {
-    opacity: 0;
-    transition: opacity 1.5s ease;
-}
-.animate-fade-in.active {
-    opacity: 1;
+    color: var(--color-primary);
 }
 
 .footer-copyright {
     text-align: center;
     margin-top: 20px;
-    color: var(--color-text); 
+    color: var(--color-text);
 }
 
 .footer-copyright p {
@@ -540,11 +500,21 @@ span {
     justify-content: space-between;
 }
 
-.footer-copyright a{
+.footer-copyright a {
     font-size: 12px;
 }
 
-/* CSS for the particle background */
+/* Animation */
+.animate-fade-in {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.animate-fade-in.active {
+    opacity: 1;
+}
+
+/* Particle Background */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -564,26 +534,17 @@ body, html {
     color: var(--color-text);
 }
 
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
 section {
     position: relative;
-    z-index: 1;
-    background: rgba(0, 27, 52, 0.9); /* Semi-transparent background to see particles */
+    /* z-index: 1; */
+    background: rgba(0, 27, 52, 0.9);
     padding: 50px 0;
 }
 
 .nav, .footer {
     position: relative;
     z-index: 1;
-    background: rgba(0, 27, 52, 0.9); /* Semi-transparent background to see particles */
+    background: rgba(0, 27, 52, 0.9);
 }
 
 .footer a {

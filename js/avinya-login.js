@@ -48,3 +48,32 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to get the value of a query parameter by name
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Function to append username parameter to nav links
+    function appendUsernameToNavLinks(username) {
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && !href.includes('?')) {
+                link.setAttribute('href', `${href}?username=${encodeURIComponent(username)}`);
+            } else if (href) {
+                link.setAttribute('href', `${href}&username=${encodeURIComponent(username)}`);
+            }
+        });
+    }
+
+    // Get the username from the URL
+    const username = getQueryParam('username');
+
+    // If username exists, append it to nav links
+    if (username) {
+        appendUsernameToNavLinks(username);
+    }
+});

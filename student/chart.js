@@ -76,17 +76,32 @@ document.addEventListener('DOMContentLoaded', function () {
             const attendancePercentage = attendanceChart.data.datasets[0].data[courseIndex];
             const modal = document.getElementById('attendanceModal');
             const modalContent = modal.querySelector('.modal-content');
-            modalContent.innerHTML = `<h3>Attendance for ${courseLabel}</h3>
+            modalContent.innerHTML = `<span class="close-button">&times;</span>
+                                       <h3>Attendance for ${courseLabel}</h3>
                                       <p>Attendance Percentage: ${attendancePercentage}%</p>`;
             modal.style.display = 'block';
         });
+
+        const closeButton1 = document.querySelectorAll('.close-button-1');
+        closeButton1.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.m1');
+                modal.style.display = 'none';
+            });
+        });
+    
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     });
 
-    // Close the modal when the close button is clicked
-    const closeButtons = document.querySelectorAll('.close');
-    closeButtons.forEach(button => {
+
+    const closeButton2 = document.querySelectorAll('.close-button-2');
+    closeButton2.forEach(button => {
         button.addEventListener('click', () => {
-            const modal = button.closest('.modal');
+            const modal = button.closest('.m2');
             modal.style.display = 'none';
         });
     });
@@ -109,7 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const cieMarks = cieChart.data.datasets[0].data[courseIndex];
             const modal = document.getElementById('cieMarksModal');
             const modalContent = modal.querySelector('.modal-content');
-            modalContent.innerHTML = `<h3>CIE Marks for ${courseLabel}</h3>
+            modalContent.innerHTML = `<span class="close-button">&times;</span>
+                                      <h3>CIE Marks for ${courseLabel}</h3>
                                       <p>CIE Marks: ${cieMarks}</p>`;
             modal.style.display = 'block';
         });
