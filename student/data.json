@@ -1,8 +1,12 @@
 [
   {
-    "username": "student1",
-    "password": "123",
+    "username": "1ga23ai009",
+    "password": "01012005",
     "role": "student",
+    "name": "Bhuvan A R",
+    "usn": "1GA23AI009",
+    "section": "B.E-AI, SEM 02, SEC C",
+    "photo": "../assests/Profile-Pictures/BhuvanAR.jpg",
     "cieData": {
       "subjects": [
         {

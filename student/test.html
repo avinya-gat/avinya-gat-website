@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AVINYA" />
+    <meta property="og:description" content="Empowering Education with Seamless Student Management" />
+    <meta property="og:title" content="AVINYA" />
+    <meta property="og:image" content="../assets/AVINYA.png" />
+    <!-- End Meta Tags -->
+
+    <!-- Title and Favicon -->
+    <title>AVINYA</title>
+    <link rel="shortcut icon" href="../assets/AVINYA.png">
+    <!-- End Title and Favicon -->
+
+    <!-- CSS Files -->
+    <link href="../css/avinya.css" rel="stylesheet">
+    <link href="../css/avinya-index.css" rel="stylesheet">
+    <link href="studentdashboard.css" rel="stylesheet">
+    <!-- End CSS Files -->
+    
+    <!-- JavaScript Files -->
+    <script src="../js/avinya.js" defer></script>
+    <script src="https://kit.fontawesome.com/f73d1108df.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="https://unpkg.com/scrollreveal" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="avinya-student.js" defer></script>
+    <script src="chart.js" defer></script>
+    <script src="notes.js" defer></script>
+    <!-- End JavaScript Files -->
+
+    <!-- Google Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SR69YQ2V7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-SR69YQ2V7M');
+    </script>
+    <!-- End Google Tag -->
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Fetch and display student data
+        document.addEventListener("DOMContentLoaded", function () {
+            const username = getUrlParameter('username');
+
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const student = data.find(user => user.username === username && user.role === 'student');
+
+                    if (student) {
+                        // Display student info
+                        document.querySelector('.student-name h2').textContent = username;
+                        document.querySelector('.student-info-right').innerHTML = `
+                            <p>USN: ${student.username}</p>
+                            <p>Section: B.E-AI, SEM 02, SEC C</p>
+                        `;
+
+                        // Display CIE Marks
+                        const cieChart = document.getElementById('cie-chart').getContext('2d');
+                        new Chart(cieChart, {
+                            type: 'bar',
+                            data: {
+                                labels: student.cieData.subjects.map(subject => subject.name),
+                                datasets: [{
+                                    label: 'CIE Marks',
+                                    data: student.cieData.subjects.map(subject => subject.marks),
+                                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+
+                        // Display Attendance
+                        const attendanceChart = document.getElementById('attendance-chart').getContext('2d');
+                        new Chart(attendanceChart, {
+                            type: 'line',
+                            data: {
+                                labels: student.attendanceData.map(attendance => attendance.exam),
+                                datasets: [{
+                                    label: 'Attendance Percentage',
+                                    data: student.attendanceData.map(attendance => attendance.percentage),
+                                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                                    borderColor: 'rgba(153, 102, 255, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    } else {
+                        console.error('Student not found or invalid role');
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+</head>
+
+<body>
+    
+    <!-- Navigation -->
+    <header>
+        <nav class="nav" id="nav">
+            <div class="logo">A<span class="logospan">VINY</span>A</div>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="studentdashboard.html" id="home-link" class="active">Home</a></li>
+                    <li id="logout-button"><button>Logout</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- End Navigation -->
+
+    <!-- Student Info Section -->
+    <section class="student-info" id="student-info">
+        <div class="container" data-sr="enter bottom ease-in-out 100px">
+            <div class="student-details">
+                <div class="circle-image">
+                    <img src="../assets/AVINYA.png" alt="Profile Image">
+                </div>
+                <div class="student-name">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="student-info-right">
+                <!-- Student info will be inserted here by JS -->
+            </div>
+        </div>
+    </section>
+    <!-- End Student Info Section -->
+
+    <!-- Graph Section -->
+    <section class="graph-section" id="graph-section">
+        <div class="container" data-sr="enter bottom ease-in-out 100px">
+            <div class="column">
+                <h2>CIE Marks</h2>
+                <canvas id="cie-chart"></canvas>
+            </div>
+            <div class="column">
+                <h2>Attendance</h2>
+                <canvas id="attendance-chart"></canvas>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="column">
+                <h2>Credits</h2>
+                <table class="credits-table">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Credits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>23MAT23A</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>23CHE22A</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>23PLC23A</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>23ESC24A</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>23MEG25</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>23IDT26</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>23CIP27</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="column">
+                <h2>Fee Balance</h2>
+                <br>
+                <div class="bar-graph">
+                    <div class="bar-progress" style="width: 100%;"></div>
+                </div>
+                <div class="bar-labels">
+                    <span class="bar-label">219546 PAID</span>
+                    <span class="bar-label">NO PENDING</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Graph Section -->
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COE For BE 2ND SEMESTER</title>
+    <!-- End Meta Tags -->
+
+    <!-- Title Icon -->
+    <link rel="shortcut icon" href="../assests/AVINYA.png">
+    <!-- End Title Icon -->
+
+    <!-- CSS -->
+    <link href="../css/avinya.css" rel="stylesheet">
+    <link href="../css/avinya-index.css" rel="stylesheet">
+    <link href="studentdashboard.css" rel="stylesheet">
+    <link href="prevpref.css" rel="stylesheet">
+
+    <!-- Js -->
+    <script src="../js/avinya.js"></script>
+    <script src="prevpref.js"></script>
+    <!-- End Js -->
+
+    <!-- Box Icons Links -->
+    <script src="https://kit.fontawesome.com/f73d1108df.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- End Box Icons Links -->
+</head>
+<body>
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <div class="logo">A<span class="logospan">VINY</span>A</div>
+        <div class="nav-toggle" id="nav-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="studentdashboard.html" id="home-link">Home</a></li>
+                <li><a href="events.html" id="events-link">Events</a></li>
+                <li><a href="timetable.html" id="timetable-link">Time Table</a></li>
+                <li><a href="previouspreference.html" id="prev-pref-link" class="active">Prev Pref</a></li>
+                <li><a id="logout-btn" class="active">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Nav -->
+    
+    <!-- Student Info Section -->
+    <section class="student-info" id="student-info">
+        <div class="container" data-sr="enter bottom ease-in-out 100px">
+            <div class="student-details">
+                <div class="circle-image">
+                    <img id="student-photo" src="" alt="Profile Image">
+                </div>
+                <div class="student-name">
+                    <h2 id="student-name"></h2>
+                </div>
+            </div>
+            <div class="student-info-right">
+                <p id="student-usn"></p>
+                <p id="student-section"></p>
+            </div>
+        </div>
+    </section>
+    <!-- End Student Info Section -->
+
+    <!-- Performance Table Section -->
+    <section class="container">
+        <div class="timetable-header">Odd Term 2023 - Semester 1</div>
+        <br>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>COURSE CODE</th>
+                    <th>COURSE NAME</th>
+                    <th>CH</th>
+                    <th>CA</th>
+                    <th>PERCENTAGE</th>
+                    <th>CIE</th>
+                    <th>FACULTY</th>
+                </tr>
+            </thead>
+            <tbody id="performance-table-body">
+                <!-- Performance data will be inserted here -->
+            </tbody>
+        </table>
+    </section>
+    <!-- End Performance Table Section -->
+
+    <!-- Js -->
+    <script src="../js/avinya.js"></script>
+    <script src="../js/avinya-login.js"></script>
+    <script src="../js/avinya-custom.js"></script>
+    <script src="../js/avinya-particles.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="avinya-student.js"></script>
+    <script src="chart.js"></script>
+    <script src="notes.js"></script>
+    <script src="student-data-fetch.js"></script>
+    <!-- End Js -->
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SR69YQ2V7M"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SR69YQ2V7M');
+    </script>
+</body>
+</html>

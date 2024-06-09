@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-background: #001B34;
+    --color-dark: #363949;
+    --color-white: #fff;
+    --color-text: #57EFFE;
+    --color-secondary: #C1F9FF;
+    --color-info: #7d8da1;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-background-overlay: rgba(0, 0, 0, 0.5);
+    /* Define background overlay color */
+    --border-radius-1: 0.4rem;
+    --color-error: red;
+    /* Define error color */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+.timetable {
+    margin: 20px auto;
+    max-width: 90%;
+    background: var(--color-background-overlay);
+    border-radius: var(--border-radius-1);
+    overflow: hidden;
+}
+
+.timetable-header {
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: large;
+}
+
+.timetable-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-color: none;
+}
+
+.timetable-table th,
+.timetable-table td {
+    border: 0.5px solid var(--color-secondary);
+    padding: 10px;
+    text-align: center;
+}
+
+.date-day {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    font-size: medium;
+}
+
+@media (max-width: 768px) {
+    .timetable-table thead {
+        display: none;
+    }
+
+    .timetable-table,
+    .timetable-table tbody,
+    .timetable-table tr,
+    .timetable-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .timetable-table tr {
+        margin-bottom: 10px;
+        background-color: var(--color-dark);
+        color: var(--color-secondary);
+        border-radius: var(--border-radius-1);
+        padding: 10px;
+    }
+
+    .timetable-table td {
+        text-align: left;
+        padding-left: 10px;
+    }
+}
