@@ -1,0 +1,40 @@
+{
+    "Day-01": [
+        { "time": "08:30 AM - 09:30 AM", "course": "23ESC24A - Introduction to Electronics Communication", "faculty": "Ms. Keerthy N", "room": "AIB102", "batch": "" },
+        { "time": "09:30 AM - 10:30 AM", "course": "23MAT21A - Mathematics II For CSE Stream", "faculty": "Dr. Mallika K S", "room": "AIB102", "batch": "" },
+        { "time": "11:00 AM - 12:00 PM", "course": "23CHE22A - Applied Chemistry For CSE Stream", "faculty": "Dr. Remya P N", "room": "AIB102", "batch": "" },
+        { "time": "12:00 PM - 01:00 PM", "course": "23PLC23A - Advanced Programming in C", "faculty": "Ms. Sushma T", "room": "AIB102", "batch": "" },
+        { "time": "02:00 PM - 04:00 PM", "course": "23CHE22A - Applied Chemistry For CSE Stream (INT)", "faculty": "Dr. Remya P N", "room": "Chemistry Lab", "batch": "C1" },
+        { "time": "04:00 PM - 04:00 PM", "course": "23PLC23A - Advanced Programming in C (INT)", "faculty": "Ms. Sushma T", "room": "CSE Lab - 1", "batch": "C2" }
+    ],
+    "Day-02": [
+        { "time": "08:30 AM - 09:30 AM", "course": "23MEG25 - Computer Adied Engineering Drawing", "faculty": "Dr. Shreekala", "room": "AIB102", "batch": "" },
+        { "time": "09:30 AM - 10:30 AM", "course": "23MEG25 - Computer Adied Engineering Drawing", "faculty": "Dr. Shreekala", "room": "AIB102", "batch": "" },
+        { "time": "11:00 AM - 12:00 PM", "course": "23CHE22A - Applied Chemistry For CSE Stream", "faculty": "Dr. Remya P N", "room": "AIB102", "batch": "" },
+        { "time": "12:00 PM - 01:00 PM", "course": "23ESC24A - Introduction to Electronics Communication", "faculty": "Ms. Keerthy N", "room": "AIB102", "batch": "" }
+    ],
+    "Day-03": [
+        { "time": "08:30 AM - 09:30 AM", "course": "23CHE22A - Applied Chemistry For CSE Stream", "faculty": "Dr. Remya P N", "room": "AIB102", "batch": "" },
+        { "time": "09:30 AM - 10:30 AM", "course": "23PLC23A - Advanced Programming in C", "faculty": "Ms. Sushma T", "room": "AIB102", "batch": "" },
+        { "time": "11:00 AM - 12:00 PM", "course": "23IDT26 - Innovation and Design Thinking", "faculty": "dr. Bino Prince Raja", "room": "AIB102", "batch": "" },
+        { "time": "12:00 PM - 01:00 PM", "course": "23MAT21A - Mathematics II For CSE Stream", "faculty": "Dr. Mallika K S", "room": "AIB102", "batch": "" }
+    ],
+    "Day-04": [
+        { "time": "08:30 AM - 09:30 AM", "course": "23MEG25 - Computer Adied Engineering Drawing", "faculty": "Dr. Shreekala", "room": "Caed Lab", "batch": "" },
+        { "time": "09:30 AM - 10:30 AM", "course": "23MEG25 - Computer Adied Engineering Drawing", "faculty": "Dr. Shreekala", "room": "Caed Lab", "batch": "" },
+        { "time": "11:00 AM - 12:00 PM", "course": "23MAT21A - Mathematics II For CSE Stream", "faculty": "Dr. Mallika K S", "room": "AIB102", "batch": "" },
+        { "time": "12:00 PM - 01:00 PM", "course": "23PLC23A - Advanced Programming in C", "faculty": "Ms. Sushma T", "room": "AIB102", "batch": "" }
+    ],
+    "Day-05": [
+        { "time": "08:30 AM - 09:30 AM", "course": "23ESC24A - Introduction to Electronics Communication", "faculty": "Ms. Keerthy N", "room": "AIB102", "batch": "" },
+        { "time": "09:30 AM - 10:30 AM", "course": "23MAT21A - Mathematics II For CSE Stream", "faculty": "Dr. Mallika K S", "room": "AIB102", "batch": "" },
+        { "time": "11:00 AM - 01:00 PM", "course": "23CHE22A - Applied Chemistry For CSE Stream (INT)", "faculty": "Dr. Remya P N", "room": "Chemistry Lab", "batch": "C1" },
+        { "time": "01:00 PM - 01:00 PM", "course": "23PLC23A - Advanced Programming in C (INT)", "faculty": "Ms. Sushma T", "room": "CSE Lab - 1", "batch": "C2" }
+    ],
+    "Day-06": [
+        { "time": "08:30 AM - 09:30 AM", "course": "23PLC23A - Advanced Programming in C", "faculty": "Ms. Sushma T", "room": "AIB102", "batch": "" },
+        { "time": "09:30 AM - 10:30 AM", "course": "23MAT21A - Mathematics II For CSE Stream", "faculty": "Dr. Mallika K S", "room": "AIB102", "batch": "" },
+        { "time": "11:00 AM - 12:00 PM", "course": "23CHE22A - Applied Chemistry For CSE Stream", "faculty": "Dr. Remya P N", "room": "AIB102", "batch": "" },
+        { "time": "12:00 PM - 01:00 PM", "course": "23ESC24A - Introduction to Electronics Communication", "faculty": "Ms. Keerthy N", "room": "AIB102", "batch": "" }
+    ]
+}

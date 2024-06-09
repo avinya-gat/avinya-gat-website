@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-background: #001B34;
+    --color-dark: #363949;
+    --color-white: #fff;
+    --color-text: #57EFFE;
+    --color-secondary: #C1F9FF;
+    --color-info: #7d8da1;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-background-overlay: rgba(0, 0, 0, 0.5);
+    --border-radius-1: 0.4rem;
+    --color-error: red;
+}
+
+/* body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            margin: 0;
+            padding: 0;
+        } */
+.performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.performance-table th,
+.performance-table td {
+    border: 1px solid var(--color-secondary);
+    padding: 10px;
+    text-align: center;
+}
+
+.performance-table th {
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+}
+
+.timetable-header {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+
+    .performance-table th,
+    .performance-table td {
+        padding: 5px;
+    }
+}

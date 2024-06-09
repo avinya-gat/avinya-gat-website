@@ -1,37 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendar</title>
+        <link href="../css/avinya.css" rel="stylesheet">
+        <link href="../css/avinya-index.css" rel="stylesheet">
+        <link href="studentdashboard.css" rel="stylesheet">
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap');
+        :root {
+    --color-background: #001B34;
+    --color-dark: #363949;
+    --color-white: #fff;
+    --color-text: #57EFFE;
+    --color-secondary: #C1F9FF;
+    --color-info: #7d8da1;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-background-overlay: rgba(0, 0, 0, 0.5); /* Define background overlay color */
+    --border-radius-1: 0.4rem;
+    --color-error: red; /* Define error color */
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datepicker.css">
-    <style>
-        /* Your CSS styles here */
-        #datepicker {
-            max-width: 800px;
-            margin: 0 auto;
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-background);
         }
-    </style>
-</head>
+        #calendar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+            margin: 20px auto;
+        }
+        .calendar-navigation {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin-bottom: 10px;
+        }
+        .calendar-navigation button {
+            background: var(--color-dark);
+            color: var(--color-secondary);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: var(--border-radius-1);
+        }
+        .calendar-navigation button:hover {
+            background: var(--color-secondary);
+            color: var(--color-background);
+        }
+        .calendar-month {
+            width: 100%;
+        }
+        .calendar-month table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .calendar-month th, .calendar-month td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid var(--color-secondary);
+        }
+        .calendar-month th {
+            background-color: var(--color-dark);
+            color: var(--color-secondary);
+        }
+        .calendar-month td {
+            background-color: var(--color-background);
+        }
+        .today {
+            background-color: var(--color-text) !important;
+            color: var(--color-dark);
+        }
+        /* Add this CSS to your existing styles */
+        .event-date {
+    position: relative;
+    background-color: var(--color-text); /* Color for circled dates */
+    color: var(--color-dark); /* Text color for circled dates */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
 
-<body>
-    <input type="text" id="datepicker" placeholder="Select Date Range">
-    <script src="https://cdn.jsdelivr.net/npm/datepicker.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    const datepicker = new Datepicker(document.getElementById('datepicker'), {
-        autohide: true,
-        format: 'yyyy-mm-dd',
-        range: true,
-        startDate: '2024-03-04',
-        endDate: '2024-06-22',
-        inline: true,
-        language: 'en'
+.event-date::before {
+    content: attr(data-date);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    z-index: 1;
+}
+
+.event:hover, .event-clicked {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    cursor: pointer;
+}
+
+
+        @media (max-width: 768px) {
+            .calendar-navigation button {
+                padding: 5px 10px;
+            }
+            .calendar-month th, .calendar-month td {
+                padding: 5px;
+            }
+        }
+
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background-overlay); /* Use CSS variable for background color */
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--color-background); /* Use CSS variable for background color */
+    padding: 20px;
+    border-radius: var(--border-radius-1); /* Use CSS variable for border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    position: relative; /* Make position relative for the close button positioning */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--color-error); /* Use CSS variable for color */
+}
+
+
+
+    </style>
+    </head>
+    <body>
+        <div id="calendar-container">
+            <div class="calendar-navigation">
+                <button id="prev-month">&lt; Previous</button>
+                <button id="next-month">Next &gt;</button>
+            </div>
+            <div id="calendar"></div>
+        </div>
+        <script>
+        // Replace the existing JavaScript code with this
+
+function generateCalendar(year, month) {
+    const calendarEl = document.getElementById('calendar');
+    calendarEl.innerHTML = '';  // Clear previous calendar content
+
+    const monthNames = ["January", "February", "March", "April", "May", "June", 
+                        "July", "August", "September", "October", "November", "December"];
+    const currentMonth = month % 12;
+    const currentYear = year + Math.floor(month / 12);
+    const date = new Date(currentYear, currentMonth);
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const startDay = new Date(currentYear, currentMonth, 1).getDay();
+    const monthName = monthNames[currentMonth];
+
+    let calendar = `<div class="calendar-month"><h3>${monthName} ${currentYear}</h3><table>`;
+    calendar += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>';
+
+    // Fill initial empty cells
+    for (let i = 0; i < startDay; i++) {
+        calendar += '<td></td>';
+    }
+
+// Fill days of the month
+// for (let day = 1; day <= daysInMonth; day++) {
+//     const currentDate = new Date(currentYear, currentMonth, day);
+//     const isToday = currentDate.toDateString() === new Date().toDateString();
+//     const event = events.find(event => event.date.toDateString() === currentDate.toDateString());
+//     const eventClass = event ? 'event' : '';
+
+//     calendar += `<td class="${isToday ? 'today' : ''} ${eventClass}">`;
+//     if (event) {
+//         calendar += `<div class="event-date" data-date="${event.date.toDateString()}"></div>`;
+//     } else {
+//         calendar += day;
+//     }
+//     calendar += '</td>';
+
+//     if ((day + startDay) % 7 === 0) {
+//         calendar += '</tr><tr>';
+//     }
+// }
+for (let day = 1; day <= daysInMonth; day++) {
+    const currentDate = new Date(currentYear, currentMonth, day);
+    const isToday = currentDate.toDateString() === new Date().toDateString();
+    const event = events.find(event => event.date.toDateString() === currentDate.toDateString());
+    const eventClass = event ? 'event' : '';
+
+    calendar += `<td class="${isToday ? 'today' : ''} ${eventClass}">${day}</td>`;
+
+    if ((day + startDay) % 7 === 0) {
+        calendar += '</tr><tr>';
+    }
+}
+
+
+
+    // Fill final empty cells
+    const remainingCells = 7 - ((daysInMonth + startDay) % 7);
+    if (remainingCells < 7) {
+        for (let i = 0; i < remainingCells; i++) {
+            calendar += '<td></td>';
+        }
+    }
+
+    calendar += '</tr></table></div>';
+    calendarEl.innerHTML += calendar;
+
+    // Add event listeners for showing event details
+    // const eventCells = document.querySelectorAll('.event');
+    // eventCells.forEach(cell => {
+    //     cell.addEventListener('mouseover', () => {
+    //         const eventDate = cell.querySelector('.event-date').getAttribute('data-date');
+    //         const eventDetail = events.find(event => event.date.toDateString() === eventDate);
+    //         if (eventDetail) {
+    //             cell.title = `${eventDetail.title} (${eventDetail.date.toDateString()})`;
+    //         }
+    //     });
+
+    //     cell.addEventListener('click', () => {
+    //         const eventDate = cell.querySelector('.event-date').getAttribute('data-date');
+    //         const eventDetail = events.find(event => event.date.toDateString() === eventDate);
+    //         if (eventDetail) {
+    //             alert(`Event: ${eventDetail.title}\nDate: ${eventDetail.date.toDateString()}`);
+    //         }
+    //     });
+    // });
+}
+
+const events = [
+    { title: 'Holiday', date: new Date(2024, 2, 10) },
+    { title: 'Minor-Exam', date: new Date(2024, 2, 15) },
+    { title: 'Marks/Attendance Display', date: new Date(2024, 3, 5) },
+    { title: 'Feedback', date: new Date(2024, 4, 1) }
+];
+
+let currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth();
+
+// JavaScript code
+
+document.addEventListener('DOMContentLoaded', () => {
+    generateCalendar(currentYear, currentMonth);
+
+    document.getElementById('prev-month').addEventListener('click', () => {
+        currentMonth -= 1;
+        if (currentMonth < 0) {
+            currentYear--;
+            currentMonth += 12;
+        }
+        generateCalendar(currentYear, currentMonth);
+    });
+
+    document.getElementById('next-month').addEventListener('click', () => {
+        currentMonth += 1;
+        if (currentMonth > 11) {
+            currentYear++;
+            currentMonth -= 12;
+        }
+        generateCalendar(currentYear, currentMonth);
+    });
+
+    // Function to show event details in a modal dialog
+    function showDialog(eventDetail) {
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+        modal.innerHTML = `
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>${eventDetail.title}</h2>
+                <p>Date: ${eventDetail.date.toDateString()}</p>
+            </div>
+        </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Close the modal when the close button is clicked
+        const closeButton = modal.querySelector('.close');
+        closeButton.addEventListener('click', () => {
+            modal.remove();
+        });
+    }
+
+    // Add event listeners for showing event details
+    const eventCells = document.querySelectorAll('.event');
+    eventCells.forEach(cell => {
+        cell.addEventListener('click', () => {
+            const eventDate = cell.querySelector('.event-date').getAttribute('data-date');
+            const eventDetail = events.find(event => event.date.toDateString() === eventDate);
+            if (eventDetail) {
+                showDialog(eventDetail);
+            }
+        });
     });
 });
 
     </script>
-</body>
-
+    </body>
 </html>

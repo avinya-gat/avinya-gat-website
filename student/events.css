@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-background: #001B34;
+    --color-dark: #363949;
+    --color-white: #fff;
+    --color-text: #57EFFE;
+    --color-secondary: #C1F9FF;
+    --color-info: #7d8da1;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-background-overlay: rgba(0, 0, 0, 0.5);
+    /* Define background overlay color */
+    --border-radius-1: 0.4rem;
+    --color-error: red;
+    /* Define error color */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+#calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.calendar-navigation button {
+    background: var(--color-dark);
+    color: var(--color-secondary);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.calendar-navigation button:hover {
+    background: var(--color-secondary);
+    color: var(--color-background);
+}
+
+.calendar-month {
+    width: 100%;
+}
+
+.calendar-month table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-month th,
+.calendar-month td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid var(--color-secondary);
+}
+
+.calendar-month th {
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+}
+
+.calendar-month td {
+    background-color: var(--color-background);
+}
+
+.today {
+    background-color: var(--color-text) !important;
+    color: var(--color-dark);
+}
+
+.event-date {
+    position: relative;
+    background-color: var(--color-text);
+    /* Color for circled dates */
+    color: var(--color-dark);
+    /* Text color for circled dates */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* .event-date::before {
+    content: attr(data-date);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    z-index: 1;
+} */
+.event:hover,
+.event-clicked {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .calendar-navigation button {
+        padding: 5px 10px;
+    }
+
+    .calendar-month th,
+    .calendar-month td {
+        padding: 5px;
+    }
+}
+
+/* Add or update this CSS in your existing styles */
+.modal {
+    display: none;
+    /* Hide the modal by default */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 80%;
+    /* Adjust the width as needed */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+    /* Change color on hover */
+}
+
+.event-list {
+    width: 90%;
+    margin: 20px auto;
+    background: var(--color-dark);
+    color: var(--color-secondary);
+    border-radius: var(--border-radius-1);
+    padding: 10px;
+}
+
+.event-item {
+    padding: 5px;
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.event-item:last-child {
+    border-bottom: none;
+}

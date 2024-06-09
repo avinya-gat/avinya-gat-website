@@ -16,11 +16,12 @@
         <link href="../css/avinya.css" rel="stylesheet">
         <link href="../css/avinya-index.css" rel="stylesheet">
         <link href="studentdashboard.css" rel="stylesheet">
-        <link href="events.css" rel="stylesheet">
+        <link href="timetable.css" rel="stylesheet">
         <!-- End CSS -->
 
         <!-- Js -->
-        <script src="events.js"></script>
+        <script src="../js/avinya.js"></script>
+        <script src="timetable.js"></script>
         <!-- End Js -->
 
         <!-- Box Icons Links -->
@@ -39,8 +40,8 @@
             <div class="nav-menu" id="nav-menu">
                 <ul>
                     <li><a href="studentdashboard.html" id="home-link">Home</a></li>
-                    <li><a href="events.html" id="events-link" class="active">Events</a></li>
-                    <li><a href="timetable.html" id="timetable-link">Time Table</a></li>
+                    <li><a href="events.html" id="events-link">Events</a></li>
+                    <li><a href="timetable.html" id="timetable-link" class="active">Time Table</a></li>
                     <li><a href="previouspreference.html" id="prev-pref-link">Prev Pref</a></li>
                     <li><a id="logout-btn">Logout</a></li>
                 </ul>
@@ -67,26 +68,12 @@
         </section>
         <!-- End Student Info Section -->
 
-        <!-- Calendar Section -->
-        <div id="calendar-container" data-sr="enter bottom ease-in-out 100px">
-            <div class="calendar-navigation">
-                <button id="prev-month">&lt; Previous</button>
-                <button id="next-month">Next &gt;</button>
-            </div>
-            <div id="calendar"></div>
-        </div>
-
-        <!-- Event List Section -->
-        <div id="event-list" class="event-list" data-sr="enter bottom ease-in-out 100px"></div>
-
-        <!-- Modal Structure -->
-        <div id="event-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2 id="modal-title"></h2>
-                <p id="modal-date"></p>
-            </div>
-        </div>
+        <!-- Weekly Timetable Section -->
+        <section class="timetable" data-sr="enter bottom ease-in-out 100px">
+            <div class="timetable-header">Time Table</div>
+            <div id="timetable-content"></div>
+        </section>
+        <!-- End Weekly Timetable Section -->
 
         <!-- Js -->
         <script src="../js/avinya.js"></script>
@@ -102,8 +89,7 @@
         <!-- End Js -->
 
         <!-- Google tag (gtag.js) -->
-        <script async
-            src="https://www.googletagmanager.com/gtag/js?id=G-SR69YQ2V7M"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SR69YQ2V7M"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -111,6 +97,5 @@
 
             gtag('config', 'G-SR69YQ2V7M');
         </script>
-
-</body>
+    </body>
 </html>
